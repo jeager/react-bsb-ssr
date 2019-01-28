@@ -17,7 +17,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "NODE_EVN=development BABEL_ENV=$NODE_ENV nodemon server/init.js"
   },
   "eslintConfig": {
     "extends": "react-app"
