@@ -1,24 +1,26 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
+  getInitialCount = () => {
+    return this.props.initialProps && this.props.initialProps.count ? this.props.initialProps.count : 0
+  }
+
+  state = {
+    count: this.getInitialCount(),
+  }
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src="./logo.svg" className="App-logo" alt="logo" />
           <p>
-            Edit <code>src/App.js</code> and save to reload.
+            Count is at {this.state.count}!
           </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <button className="hit-me-button" onClick={() => this.setState(prevState => ({count: prevState.count + 1}))}>
+            HIT ME!
+          </button>
         </header>
       </div>
     );

@@ -1,10 +1,14 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM, { hydrate } from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+
+const state = window.__STATE__;
+delete window.__STATE__;
+
+hydrate(<App initialProps={state}/>, document.getElementById('root'))
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
